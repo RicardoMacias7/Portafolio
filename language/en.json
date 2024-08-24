@@ -1,0 +1,42 @@
+{
+    "nav1": "Home",
+    "nav2": "About me",
+    "nav3": "Skills",
+    "nav4": "Projects",
+    "nav5": "Contact",
+
+
+    "title1": "Welcome to my portfolio!",
+    "presentacion": "I am Ricardo Macías, Software Developer",
+    "description1": "I am a passionate software developer with over 4 years of experience in creating innovative web and mobile applications. I specialize in Java, JavaScript, Python, and PHP, and I am always eager to learn new technologies and improve my skills.",
+    "btn_proyecto": "Go to Projects",
+    "btn_cv":"Download CV",
+
+
+    "title2": "About me",
+    "profesion":"Software Developer",
+    "descripcion2": "I am a student at the Instituto Tecnológico Superior de Guayaquil, specializing in the development of web and mobile applications, as well as software programs. I am seeking opportunities to apply my skills and knowledge in a dynamic and challenging work environment, with the goal of acquiring new insights and strengthening my professional career. I enjoy learning from others and continuously pushing myself to improve. I am an open-minded individual, committed to problem-solving, and passionate about creating efficient and high-quality software solutions.",
+
+
+    "title3": "My Skills",
+
+
+    "title4": "My Projects",
+  
+    "titlecard1": "Class Schedule Management",
+    "descripCard1": "A website where educational institutions can manage schedules, add teachers, courses, and assign hours and days.",
+    
+    "titlecard2": "Billing Management",
+    "descripCard2": "Invoice web, creation of Clients, Products, and Invoices according to product purchases.",
+    
+    "titlecard3": "Login",
+    "descripCard3": "An encoder where the user can write a text that will be encoded or decoded by the program.",
+    
+    "titlecard4": "Portfolio",
+    "descripCard4": "My personal web portfolio, which includes some of my most outstanding projects, technical skills, and education.",
+
+
+    "title5": "Contact",
+    "btn-enviar":"Send Message"
+}
+    

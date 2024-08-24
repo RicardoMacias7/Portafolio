@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/portafolio.css">
+    <title>Portafolio Macias Ricardo</title>
+    <!-- Librerías -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/ae0fd6f99f.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+</head>
+
+<body onload="hideLoader()">
+    <div id="loader" class="loader">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <!-- INICIO -->
+    <section id="inicio">
+        <div class="contenido">
+            <header>
+                <div class="contenido-header">
+                    <h1 id="emcabezado"> </h1>
+                    <nav id="nav" class="">
+                        <ul id="links">
+                            <li><a href="#inicio" id="nav1" class="seleccionado">Inicio</a></li>
+                            <li><a href="#sobremi" id="nav2">Sobre mí</a></li>
+                            <li><a href="#habilidad" id="nav3">Habilidades</a></li>
+                            <li><a href="#portafolio" id="nav4">Proyectos</a></li>
+                            <li><a href="#contacto" id="nav5">Contacto</a></li>
+                            <!-- Idiomas de la página -->
+                            <div id="flags" class="flags">
+                                <div class="flags__item" data-language="es">
+                                    <img src="../img/icon-spain.png" alt="Español/Spain">
+                                </div>
+                                <div class="flags__item" data-language="en">
+                                    <img src="../img/icon-en.png" alt="Inglés/English">
+                                </div>
+                            </div>
+                        </ul>
+                    </nav>
+                    <div id="icono-nav" onclick="responsiveMenu()">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <!-- <div class="redes">
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div> -->
+                </div>
+            </header>
+
+            <div class="presentacion">
+                <p id="title1" class="bienvenida">Bienvenidos a mi portafolio!</p>
+                <h2>Soy <span>Ricardo Macias</span>, Desarrollador de Software</h2>
+                <p id="description1" class="descripcion">Soy un desarrollador de software apasionado con más de 4 años
+                    de experiencia en
+                    la creación
+                    de aplicaciones web y móviles innovadoras. Me especializo en Java, JavaScript, Python, y PHP, y
+                    siempre
+                    estoy buscando aprender nuevas tecnologías y mejorar mis habilidades.</p>
+                <div class="botones">
+                    <a class="ir_proyecto" href="#portafolio" id="btn_proyecto">Ir a Proyectos</a>
+                    <a class="btn-cv" id="btn_cv"
+                        href="https://drive.google.com/file/d/1jE7NS-cq8YzfrQcjV-7xkQVa0B7SzPj_/view"
+                        target="_blank">Descargar CV</a>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- SOBRE MI -->
+    <section id="sobremi">
+        <div class="contenedor-foto">
+            <!-- <img src="../img/WhatsApp Image 2023-10-29 at 15.19.13.jpeg" alt=""> -->
+            <img src="https://oxygenacademy.es/wp-content/uploads/2022/08/21-1024x683.jpg" alt="">
+        </div>
+
+        <div class="sobremi" data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom">
+
+            <p class="titulo-seccion" id="title2">Sobre Mi</p>
+            <!-- <h2>Hola, soy <span>Ricardo Macias</span></h2> -->
+            <h2><span>Ricardo Macias</span></h2>
+            <h3 id="profesion">Desarrollador de Software</h3>
+            <p id="descripcion2"> Soy estudiante del Instituto Tecnológico Superior de Guayaquil, especializado en el
+                desarrollo de
+                aplicaciones web,
+                móviles y programas de software. Estoy buscando oportunidades para aplicar mis habilidades y
+                conocimientos en un entorno
+                laboral dinámico y desafiante, con el objetivo de adquirir nuevos conocimientos y fortalecer mi carrera
+                profesional.
+                Disfruto aprender de los demás y superarme continuamente. Soy una persona de mente abierta, comprometida
+                con la resolución de problemas y
+                apasionada por crear soluciones de software eficientes y de alta calidad.</p>
+        </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidad">
+        <h3 class="titulo-seccion" data-aos="fade-up" id="title3"> Mis Habilidades</h3>
+        <div class="fila" data-aos="fade-up">
+            <div class="habilidades">
+                <div class="overlay"></div>
+                <img src="../img/html.png" alt="">
+                <div class="info">
+                    <h4>HTML</h4>
+                </div>
+            </div>
+            <div class="habilidades">
+                <div class="overlay"></div>
+                <img src="../img/php.png" alt="">
+                <div class="info">
+                    <h4>PHP</h4>
+                </div>
+            </div>
+            <div class="habilidades">
+                <div class="overlay"></div>
+                <img src="../img/js.jpg" alt="">
+                <div class="info">
+                    <h4>JavaScript</h4>
+                </div>
+            </div>
+        </div>
+        <div class="fila" data-aos="fade-up">
+            <div class="habilidades">
+                <div class="overlay"></div>
+                <img src="../img/java.png" alt="">
+                <div class="info">
+                    <h4>Java</h4>
+                </div>
+            </div>
+            <div class="habilidades">
+                <div class="overlay"></div>
+                <img src="../img/python.png" alt="">
+                <div class="info">
+                    <h4>Python</h4>
+                </div>
+            </div>
+            <div class="habilidades">
+                <div class="overlay"></div>
+                <img src="../img/mysql.png" alt="">
+                <div class="info">
+                    <h4>SQL</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="portafolio">
+        <h3 class="titulo-seccion" data-aos="fade-up" id="title4">Mis Proyectos</h3>
+        <div class="fila" data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom">
+
+            <div class="proyecto">
+                <!-- <a href="http://gestiondehorarios.lovestoblog.com/" target="_blank"> -->
+                <img src="../img/gestion_horarios.png" alt="">
+                <!-- </a> -->
+                <div class="info">
+                    <h4 id="titlecard1">Gestión Horarios de Clases</h4>
+                    <p id="descripCard1">Una web donde las instituciones educativas pueden gestionar horarios, agregar
+                        docentes, cursos y
+                        asignar horas y días.</p>
+                    <div class="btn_proyecto">
+                        <a href="http://gestiondehorarios.lovestoblog.com/" target="_blank">
+                            <button class="btn_demo">
+                                <!-- <img src="../img/icon_demo.png" alt="Demostración">DEMO -->
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </a>
+                        <a href="https://github.com/RicardoMacias7/Sistema-de-Horarios-Acad-mico" target="_blank">
+                            <button class="btn_repo">
+                                <!-- <img src="../img/icon_Repo.png" alt="Repositorio de github">REPO -->
+                                <i class="fa-brands fa-github"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proyecto">
+                <img src="../img/gestion_facturas.png" alt="">
+                <div class="info">
+                    <h4 id="titlecard2">Gestion de Facturacion</h4>
+                    <p id="descripCard2">Web de facturas, creacion de Clientes, Productos y Factura conforme a la compra
+                        de productos.</p>
+                    <div class="btn_proyecto">
+                        <a href="http://facturaciondeproductos.infinityfreeapp.com/" target="_blank">
+                            <button class="btn_demo">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </a>
+                        <a href="https://github.com/RicardoMacias7/sistemaDeFacturacion" target="_blank">
+                            <button class="btn_repo">
+                                <i class="fa-brands fa-github"></i>
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="proyecto">
+                <img src="../img/login.png" alt="">
+                <div class="info">
+                    <h4 id="titlecard3">Login</h4>
+                    <p id="descripCard3">Un encriptador donde el usuario puede escribir un texto que será codificado o
+                        decodificado por el
+                        programa.</p>
+                    <div class="btn_proyecto">
+                        <a href="http://iniciosesion.lovestoblog.com/" target="_blank">
+                            <button class="btn_demo">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </a>
+                        <a href="https://github.com/RicardoMacias7/Login" target="_blank">
+                            <button class="btn_repo">
+                                <i class="fa-brands fa-github"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fila" data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom">
+            <div class="proyecto">
+                <img src="../img/portafolio.png" alt="">
+                <div class="info">
+                    <h4 id="titlecard4">Portafolio</h4>
+                    <p id="descripCard4">Mi portafolio web personal, que incluye algunos de mis proyectos más
+                        destacados, habilidades
+                        técnicas y formación.</p>
+                    <div class="btn_proyecto">
+                        <a href="#" target="_blank">
+                            <button class="btn_demo">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </a>
+                        <a href="#" target="_blank">
+                            <button class="btn_repo">
+                                <i class="fa-brands fa-github"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="proyecto">
+                <img src="../img/proyecto5.jpg" alt="">
+                <div class="info">
+                    <h4>Clases Django</h4>
+                    <p>Una serie de ejercicios y puntos clave sobre Django para mejorar las habilidades de programación.
+                    </p>
+                    <div class="btn_proyecto">
+                        <a href="#" target="_blank">
+                            <button class="btn_demo">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </a>
+                        <a href="#" target="_blank">
+                            <button class="btn_repo">
+                                <i class="fa-brands fa-github"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- <div class="proyecto">
+                <img src="../img/proyecto6.webp" alt="">
+                <div class="info">
+                    <h4>Login</h4>
+                    <p>Plantillas para login con diferentes diseños y funcionalidades para ser usadas en diversos sitios
+                        web.</p>
+                    <div class="btn_proyecto">
+                        <a href="#" target="_blank">
+                            <button class="btn_demo">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </a>
+                        <a href="#" target="_blank">
+                            <button class="btn_repo">
+                                <i class="fa-brands fa-github"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <h3 class="titulo-seccion" id="title5">contacto</h3>
+        <div class="contenedor-from">
+            <form action="">
+                <div class="fila mitad">
+                    <input type="text" placeholder="Nombre | Name" class="input-mitad">
+                    <input type="text" placeholder="E-mail" class="input-mitad">
+                </div>
+                <div class="fila">
+                    <input type="text" placeholder="Asunto | Subject" class="input-full">
+                </div>
+                <div class="fila">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje | Message"
+                        class="input-full"></textarea>
+                </div>
+                <button class="btn-enviar" id="btn-enviar" type="submit" data-section="" data-value="">Enviar
+                    Mensaje</button>
+            </form>
+        </div>
+    </section>
+    <!-- <input type="submit" value="Enviar Mensaje" class="btn-enviar" id="btn_enviar"> -->
+    <footer>
+        <div class="redes">
+            <a href="https://github.com/RicardoMacias7"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <!-- <p>Copyright © | Codified by Ricardo Macias - 2023</p> -->
+        <p id="copyright"></p>
+    </footer>
+
+    <div class="go-top-container">
+        <div class="go-top-button">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Librería de animaciones -->
+    <script>
+        AOS.init();
+    </script>
+    <script src="../js/poortafolio.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+{
+    "nav1": "inicio",
+    "nav2": "Sobre mí",
+    "nav3": "Habilidades",
+    "nav4": "Proyectos",
+    "nav5": "Contacto",
+
+    
+    "title1": "Bienvenidos a mi portafolio!",
+    "description1": "Soy un desarrollador de software apasionado con más de 4 años de experiencia en la creación de aplicaciones web y móviles innovadoras. Me especializo en Java, JavaScript, Python, y PHP, y siempreestoy buscando aprender nuevas tecnologías y mejorar mis habilidades.",
+    "btn_proyecto": "Ir a Poryectos",
+    "btn_cv":"Descargar CV",
+    
+    "title2": "Sobre mí",
+    "profesion":"Desarrollador de Software",
+    "descripcion2":"Soy estudiante del Instituto Tecnológico Superior de Guayaquil, especializado en el desarrollo de aplicaciones web, móviles y programas de software. Estoy buscando oportunidades para aplicar mis habilidades y conocimientos en un entorno laboral dinámico y desafiante, con el objetivo de adquirir nuevos conocimientos y fortalecer mi carrera profesional. Disfruto aprender de los demás y superarme continuamente. Soy una persona de mente abierta, comprometida con la resolución de problemas y apasionada por crear soluciones de software eficientes y de alta calidad.",
+
+
+    "title3": "Mis Habilidades",
+    
+
+
+    "title4": "Mis Proyectos",
+    "titlecard1": "Gestión Horarios de Clases",
+    "descripCard1": "Una web donde las instituciones educativas pueden gestionar horarios, agregar docentes, cursos y asignar horas y días.",
+    
+    "titlecard2": "Gestión de Facturación",
+    "descripCard2": "Web de facturas, creación de Clientes, Productos y Factura conforme a la compra de productos.",
+    
+    "titlecard3": "Login",
+    "descripCard3": "Un encriptador donde el usuario puede escribir un texto que será codificado o decodificado por el programa.",
+    
+    "titlecard4": "Portafolio",
+    "descripCard4": "Mi portafolio web personal, que incluye algunos de mis proyectos más destacados, habilidades técnicas y formación.",
+
+
+    "title5": "Contacto",
+     "btn-enviar":"Enviar Mensaje"
+
+
+
+
+}
