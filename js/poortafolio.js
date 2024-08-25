@@ -113,7 +113,7 @@ function translatePage(lang) {
     // Aquí puedes agregar más lógica para traducir otros elementos de la página si es necesario
 }
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
+document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
     clearErrors();
 
@@ -135,13 +135,28 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     }
 
     if (!hasError) {
-        // Aquí simulas el envío exitoso del formulario
-        Swal.fire({
-            title: translations[currentLang].successTitle,
-            text: translations[currentLang].successText,
-            icon: "success"
-        }).then(() => {
-            this.submit(); // Enviar el formulario después de mostrar el mensaje de éxito
+        // Envío del formulario usando Fetch API
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(fields).toString()
+        })
+        .then(() => {
+            Swal.fire({
+                title: translations[currentLang].successTitle,
+                text: translations[currentLang].successText,
+                icon: "success"
+            });
+            // Limpiar formulario
+            document.getElementById('contactForm').reset();
+        })
+        .catch(error => {
+            Swal.fire({
+                title: translations[currentLang].errorTitle,
+                text: translations[currentLang].errorText,
+                icon: "error"
+            });
+            console.error("Form submission error:", error);
         });
     } else {
         Swal.fire({
