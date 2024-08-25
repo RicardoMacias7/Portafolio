@@ -1,0 +1,67 @@
+ :root {
+    --white: #FFFFFF;
+    --light-grey: #D9D9D9;
+    --beaver: #ffffff;
+    
+    --black: #141414;
+    --eerie-black: #1F1F1F;
+    --jet: #292929;
+    --fond: #212121;
+} 
+
+
+
+.container--loader {
+    background-color: var(--fond);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    transition: all 2.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    animation: loader 1.5s infinite ease-in-out;
+}
+
+.loader {
+    color: var(--beaver);
+    font-size: 13px;
+    position: relative;
+    animation-delay: -0.16s;
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.loader:before {
+    left: -2.5rem;
+    animation-delay: -0.32s;
+}
+
+.loader:after {
+    left: 2.5rem;
+}
+
+@keyframes loader {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5rem 0 -1.3rem;    
+    }
+    40% {
+        box-shadow: 0 2.5rem 0 0;  
+    }
+} 

@@ -73,7 +73,103 @@ window.addEventListener('DOMContentLoaded', (event) => {
     updateFooterYear();
 });
 
-function hideLoader() {
-    const loader = document.getElementById('loader');
-    loader.classList.add('hidden'); // Añade la clase 'hidden' para ocultar el loader
+/*---------FORMULARIO-------- */
+
+const translations = {
+    es: {
+        nombreObligatorio: "El campo nombre es obligatorio.",
+        emailObligatorio: "El campo email es obligatorio.",
+        emailInvalido: "Por favor, ingresa un correo electrónico válido.",
+        asuntoObligatorio: "El campo asunto es obligatorio.",
+        mensajeObligatorio: "El campo mensaje es obligatorio.",
+        successTitle: "¡Excelente!",
+        successText: "El mensaje fue enviado exitosamente.",
+        errorTitle: "Error",
+        errorText: "Hubo un problema al enviar el formulario."
+    },
+    en: {
+        nombreObligatorio: "The name field is required.",
+        emailObligatorio: "The email field is required.",
+        emailInvalido: "Please enter a valid email address.",
+        asuntoObligatorio: "The subject field is required.",
+        mensajeObligatorio: "The message field is required.",
+        successTitle: "Excellent!",
+        successText: "The message was sent successfully.",
+        errorTitle: "Error",
+        errorText: "There was a problem submitting the form."
+    }
+};
+
+let currentLang = 'es'; // Idioma por defecto
+
+document.querySelectorAll('.flags__item').forEach(item => {
+    item.addEventListener('click', () => {
+        currentLang = item.getAttribute('data-language');
+        translatePage(currentLang);
+    });
+});
+
+function translatePage(lang) {
+    // Aquí puedes agregar más lógica para traducir otros elementos de la página si es necesario
 }
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    clearErrors();
+
+    const fields = {
+        nombre: document.getElementById('nombre').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        asunto: document.getElementById('asunto').value.trim(),
+        mensaje: document.getElementById('mensaje').value.trim()
+    };
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let hasError = false;
+
+    for (const [fieldId, value] of Object.entries(fields)) {
+        if (value === "" || (fieldId === 'email' && !emailRegex.test(value))) {
+            showError(fieldId, fieldId === 'email' && value !== "" ? 'emailInvalido' : `${fieldId}Obligatorio`);
+            hasError = true;
+        }
+    }
+
+    if (!hasError) {
+        // Aquí simulas el envío exitoso del formulario
+        Swal.fire({
+            title: translations[currentLang].successTitle,
+            text: translations[currentLang].successText,
+            icon: "success"
+        }).then(() => {
+            this.submit(); // Enviar el formulario después de mostrar el mensaje de éxito
+        });
+    } else {
+        Swal.fire({
+            title: translations[currentLang].errorTitle,
+            text: translations[currentLang].errorText,
+            icon: "error"
+        });
+    }
+});
+
+function showError(fieldId, errorKey) {
+    const errorElement = document.getElementById(`error-${fieldId}`);
+    errorElement.innerText = translations[currentLang][errorKey];
+    errorElement.style.display = 'block';
+    document.getElementById(fieldId).style.borderColor = 'red';
+}
+
+function clearErrors() {
+    document.querySelectorAll('.error-message').forEach(msg => {
+        msg.style.display = 'none';
+        msg.innerText = '';
+    });
+    document.querySelectorAll('input, textarea').forEach(field => field.style.borderColor = '');
+}
+
+/* ===== Loader =====*/
+window.addEventListener('load', () => {
+    const contenedorLoader = document.querySelector('.container--loader');
+    contenedorLoader.style.opacity = 0;
+    contenedorLoader.style.visibility = 'hidden';
+})

@@ -1,5 +1,5 @@
 {
-    "nav1": "inicio",
+    "nav1": "Inicio",
     "nav2": "Sobre mí",
     "nav3": "Habilidades",
     "nav4": "Proyectos",
@@ -7,8 +7,8 @@
 
     
     "title1": "Bienvenidos a mi portafolio!",
-    "description1": "Soy un desarrollador de software apasionado con más de 4 años de experiencia en la creación de aplicaciones web y móviles innovadoras. Me especializo en Java, JavaScript, Python, y PHP, y siempreestoy buscando aprender nuevas tecnologías y mejorar mis habilidades.",
-    "btn_proyecto": "Ir a Poryectos",
+    "description1": "Soy un desarrollador de software apasionado con más de 4 años de experiencia en la creación de aplicaciones web y móviles innovadoras. Me especializo en Java, JavaScript, Python, y PHP, y siempre estoy buscando aprender nuevas tecnologías y mejorar mis habilidades.",
+    "btn_proyecto": "Ir a Proyectos",
     "btn_cv":"Descargar CV",
     
     "title2": "Sobre mí",

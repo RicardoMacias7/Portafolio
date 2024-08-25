@@ -8,28 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/portafolio.css">
+    <link rel="stylesheet" href="/css/portafolio.css">
+    <link rel="stylesheet" href="/css/loader.css">
     <link rel="icon" href="/img/logo.png" type="image/png">
     <title>Macias Ricardo | Desarrollador de Software</title>
     <!-- Librerías -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css
+" rel="stylesheet">
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/ae0fd6f99f.js" crossorigin="anonymous"></script>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+
 </head>
 
-<body onload="hideLoader()">
-    <div id="loader" class="loader">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+<body>
+    <div class="container--loader">
+        <div class="loader"></div>
     </div>
     <!-- INICIO -->
     <section id="inicio">
@@ -73,8 +72,7 @@
                     de experiencia en
                     la creación
                     de aplicaciones web y móviles innovadoras. Me especializo en Java, JavaScript, Python, y PHP, y
-                    siempre
-                    estoy buscando aprender nuevas tecnologías y mejorar mis habilidades.</p>
+                    siempre estoy buscando aprender nuevas tecnologías y mejorar mis habilidades.</p>
                 <div class="botones">
                     <a class="ir_proyecto" href="#portafolio" id="btn_proyecto">Ir a Proyectos</a>
                     <a class="btn-cv" id="btn_cv"
@@ -253,7 +251,7 @@
                                 <i class="fa-solid fa-eye"></i>
                             </button>
                         </a>
-                        <a href="#" target="_blank">
+                        <a href="https://github.com/RicardoMacias7/portafolio" target="_blank">
                             <button class="btn_repo">
                                 <i class="fa-brands fa-github"></i>
                             </button>
@@ -309,47 +307,56 @@
 
     <!-- CONTACTO -->
     <section id="contacto">
-        <h3 class="titulo-seccion" id="title5">contacto</h3>
+        <h3 class="titulo-seccion" id="title5">Contacto</h3>
         <div class="contenedor-from">
-            <form action="">
+
+            <form id="contactForm" novalidate>
                 <div class="fila mitad">
-                    <input type="text" placeholder="Nombre | Name" class="input-mitad">
-                    <input type="text" placeholder="E-mail" class="input-mitad">
+                    <input type="text" placeholder="Nombre | Name" class="input-mitad" id="nombre">
+                    <span class="error-message" id="error-nombre"></span>
+                    <input type="email" placeholder="E-mail" class="input-mitad" id="email">
+                    <span class="error-message" id="error-email"></span>
                 </div>
                 <div class="fila">
-                    <input type="text" placeholder="Asunto | Subject" class="input-full">
+                    <input type="text" placeholder="Asunto | Subject" class="input-full" id="asunto">
+                    <span class="error-message" id="error-asunto"></span>
                 </div>
                 <div class="fila">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje | Message"
+                    <textarea id="mensaje" cols="30" rows="10" placeholder="Mensaje | Message"
                         class="input-full"></textarea>
+                    <span class="error-message" id="error-mensaje"></span>
                 </div>
-                <button class="btn-enviar" id="btn-enviar" type="submit" data-section="" data-value="">Enviar
+                <button class="btn-enviar" id="btn-enviar" type="submit">Enviar
                     Mensaje</button>
             </form>
         </div>
     </section>
-    <!-- <input type="submit" value="Enviar Mensaje" class="btn-enviar" id="btn_enviar"> -->
+
     <footer>
         <div class="redes">
-            <a href="https://github.com/RicardoMacias7"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a target="_blank" href="https://github.com/RicardoMacias7"><i class="fa-brands fa-github"></i></a>
+            <a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a target="_blank" href="#"><i class="fa-brands fa-linkedin"></i></a>
         </div>
         <!-- <p>Copyright © | Codified by Ricardo Macias - 2023</p> -->
         <p id="copyright"></p>
     </footer>
 
+    <!-- ------Boton para volver al inicio--- -->
     <div class="go-top-container">
         <div class="go-top-button">
             <i class="fas fa-chevron-up"></i>
         </div>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Librería de animaciones -->
     <script>
         AOS.init();
     </script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js
+    "></script>
     <script src="../js/poortafolio.js"></script>
 </body>
 
