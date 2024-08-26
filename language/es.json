@@ -35,17 +35,7 @@
 
 
     "title5": "Contacto",
-     "btn-enviar":"Enviar Mensaje",
-
-     "nombreObligatorio": "El campo nombre es obligatorio.",
-     "emailObligatorio": "El campo email es obligatorio.",
-     "emailInvalido": "Por favor, ingresa un correo electrónico válido.",
-     "asuntoObligatorio": "El campo asunto es obligatorio.",
-     "mensajeObligatorio": "El campo mensaje es obligatorio.",
-     "successTitle": "¡Excelente!",
-     "successText": "El mensaje fue enviado exitosamente.",
-     "errorTitle": "Error",
-     "errorText": "Hubo un problema al enviar el formulario."
+     "btn-enviar":"Enviar Mensaje"
 
 
 

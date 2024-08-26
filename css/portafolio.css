@@ -848,13 +848,3 @@ footer a {
     }
 }
 
-.error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 5px;
-    display: none; /* Oculto por defecto */
-}
-
-input:invalid, textarea:invalid {
-    border-color: red;
-}
