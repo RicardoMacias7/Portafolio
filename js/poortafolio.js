@@ -7,7 +7,17 @@ function responsiveMenu() {
     }
 }
 
-//========================= Boton y función ir arriba =========================
+
+// ====================================================================== Loader ====================================================================================================*/
+window.addEventListener('load', () => {
+    const contenedorLoader = document.querySelector('.container--loader');
+    contenedorLoader.style.opacity = 0;
+    contenedorLoader.style.visibility = 'hidden';
+})
+
+
+
+//======================================================== Boton y función ir arriba ====================================================================================================
 window.onscroll = function () {
     if (document.documentElement.scrollTop > 100) {
         document.querySelector('.go-top-container').classList.add('show');
@@ -24,7 +34,9 @@ document.querySelector('.go-top-container').addEventListener('click', () => {
     });
 });
 
-//=========================CAMBIO DE IDIOMA =========================*/
+
+
+//==========================================================CAMBIO DE IDIOMA ====================================================================================================*/
 function changeLanguage(language) {
     // Guarda el idioma seleccionado en localStorage
     localStorage.setItem('language', language);
@@ -63,11 +75,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-// =========================Función para actualizar el año en el pie de página=========================
+
+// ==================================================Función para actualizar el año en el pie de página===========================================================================
 function updateFooterYear() {
     const year = new Date().getFullYear(); // Obtiene el año actual
     const footerText = `Copyright © ${year} | Codified by Ricardo Macias`;
-    document.getElementById('copyright').innerText = footerText; // Actualiza el contenido del elemento con el id 'copyright'
+    document.getElementById('copyright').innerText = footerText; // Actualiza el contenido del elemento con del id en este caso 'copyright'
 }
 
 // Llama a la función al cargar la página
@@ -75,21 +88,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
     updateFooterYear();
 });
 
-
 // Aplica el idioma guardado en localStorage al cargar la página
 window.addEventListener('DOMContentLoaded', (event) => {
     const savedLanguage = localStorage.getItem('language') || 'es'; // Idioma por defecto es español
     changeLanguage(savedLanguage);
 });
 
- //========================= Cv cambia los cv si segun el idioma selecionado =========================
 
+
+ //========================================================== Cv cambia los cv si segun el idioma selecionado ===========================================================================
  document.addEventListener("DOMContentLoaded", function() {
     const btnCv = document.getElementById("btn_cv");
 
-    // URLs de los CVs en español e inglés
-    const cvUrlEs = "https://drive.google.com/file/d/11QgH9SXJIw0RjI2SyhHDUzYBwqtvuMOV/view?usp=sharing"; // URL del CV en español
-    const cvUrlEn = "https://drive.google.com/file/d/16i-gZMj-Nt1Rp2lnTo7P3pahN5mQVV1_/view?usp=sharing"; // URL del CV en inglés
+    // URLs de los CVs ....
+    const cvUrlEs = "https://drive.google.com/file/d/11QgH9SXJIw0RjI2SyhHDUzYBwqtvuMOV/view?usp=sharing"; // CV en español
+    const cvUrlEn = "https://drive.google.com/file/d/16i-gZMj-Nt1Rp2lnTo7P3pahN5mQVV1_/view?usp=sharing"; // CV en inglés
 
     // Función para cambiar el enlace del CV según el idioma seleccionado
     function changeCvLink(language) {
@@ -115,16 +128,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-
-// ==================== Loader =========================*/
-window.addEventListener('load', () => {
-    const contenedorLoader = document.querySelector('.container--loader');
-    contenedorLoader.style.opacity = 0;
-    contenedorLoader.style.visibility = 'hidden';
-})
-
-
-
+// ============================================= Mensaje personalizado al enviar el formulario ===========================================================================
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevenir el envío estándar del formulario
 
@@ -168,3 +172,20 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         console.error("Error al enviar el formulario:", error);
     });
 });
+
+// ============================================= Cambiar animacion al estar el dispositivo está en modo responsivo ===========================================================================
+
+function updateAos() {
+    const containerFoto = document.querySelector('#sobremi .contenedor-foto');
+    if (window.innerWidth <= 800) { // Define el ancho máximo para dispositivos móviles
+        containerFoto.setAttribute('data-aos', 'zoom-in');
+    } else {
+        containerFoto.setAttribute('data-aos', 'fade-right');
+    }
+}
+
+// Llamar a la función al cargar la página
+updateAos();
+
+// Llamar a la función cada vez que se cambia el tamaño del dispositivo
+window.addEventListener('resize', updateAos);
