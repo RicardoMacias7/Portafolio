@@ -123,39 +123,48 @@ window.addEventListener('load', () => {
     contenedorLoader.style.visibility = 'hidden';
 })
 
+
+
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevenir el envío estándar del formulario
 
     const form = event.target;
     const formData = new FormData(form);
 
-    // Mostrar el recaptcha para que se verifique antes del envío
-    const recaptchaWidget = document.querySelector("[data-netlify-recaptcha]");
-    if (recaptchaWidget && !recaptchaWidget.querySelector("iframe")) {
-        alert("Por favor, verifique el reCAPTCHA.");
-        return;
-    }
+    // Convierte el FormData en una cadena de consulta
+    const formEncoded = new URLSearchParams(formData).toString();
 
+    // Envía el formulario a Netlify
     fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
+        body: formEncoded,
     })
-        .then(() => {
+    .then(response => {
+        if (response.ok) {
+            // Muestra un mensaje de éxito si la respuesta es exitosa
             Swal.fire({
                 title: "¡Excelente!",
                 text: "El mensaje fue enviado exitosamente.",
                 icon: "success",
             });
-            form.reset(); // Limpiar el formulario después del envío
-        })
-        .catch((error) => {
+            form.reset(); // Limpia el formulario después del envío
+        } else {
+            // Si hay un error en la respuesta
             Swal.fire({
                 title: "Error",
                 text: "Hubo un problema al enviar el formulario.",
                 icon: "error",
             });
-            console.error("Form submission error:", error);
+        }
+    })
+    .catch(error => {
+        // Si ocurre un error en la solicitud fetch
+        Swal.fire({
+            title: "Error",
+            text: "Hubo un problema al enviar el formulario.",
+            icon: "error",
         });
+        console.error("Error al enviar el formulario:", error);
+    });
 });
-
