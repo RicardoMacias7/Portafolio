@@ -309,8 +309,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css
         <h3 class="titulo-seccion" id="title5">Contacto</h3>
         <div class="contenedor-from">
 
-            <form id="contactForm" name="contact" method="POST" data-netlify="true">
-                
+            <form id="contactForm" name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true">
+
                 <div class="fila mitad">
                     <input type="text" placeholder="Nombre | Name" name="name" class="input-mitad" id="nombre" required>
                     <input type="email" placeholder="E-mail" class="input-mitad" name="email" id="email" required>
@@ -325,6 +325,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css
                     <textarea id="mensaje" cols="30" rows="10" name="message" placeholder="Mensaje | Message"
                         class="input-full" required></textarea>
                 </div>
+                <!-- Netlify reCAPTCHA widget -->
+                <div data-netlify-recaptcha="true" aria-required="true"></div>
                 <button class="btn-enviar" id="btn-enviar" type="submit">Enviar
                     Mensaje</button>
 

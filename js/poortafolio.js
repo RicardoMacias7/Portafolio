@@ -123,20 +123,39 @@ window.addEventListener('load', () => {
     contenedorLoader.style.visibility = 'hidden';
 })
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    // Encuentra el reCAPTCHA
-    const recaptcha = document.querySelector('div[data-netlify-recaptcha="true"] iframe');
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevenir el envío estándar del formulario
 
-    // Verifica si el reCAPTCHA no ha sido completado (se puede verificar si el iframe existe y está visible)
-    if (recaptcha && recaptcha.style.visibility === 'hidden') {
-        event.preventDefault(); // Previene el envío del formulario
-        Swal.fire({
-            title: "Error",
-            text: "Por favor, verifica que no eres un robot.",
-            icon: "error"
-        });
-    } else {
-        // Si el reCAPTCHA ha sido completado, el formulario se envía
-        this.submit();
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Mostrar el recaptcha para que se verifique antes del envío
+    const recaptchaWidget = document.querySelector("[data-netlify-recaptcha]");
+    if (recaptchaWidget && !recaptchaWidget.querySelector("iframe")) {
+        alert("Por favor, verifique el reCAPTCHA.");
+        return;
     }
+
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+    })
+        .then(() => {
+            Swal.fire({
+                title: "¡Excelente!",
+                text: "El mensaje fue enviado exitosamente.",
+                icon: "success",
+            });
+            form.reset(); // Limpiar el formulario después del envío
+        })
+        .catch((error) => {
+            Swal.fire({
+                title: "Error",
+                text: "Hubo un problema al enviar el formulario.",
+                icon: "error",
+            });
+            console.error("Form submission error:", error);
+        });
 });
+
