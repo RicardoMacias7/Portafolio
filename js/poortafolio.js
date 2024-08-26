@@ -123,3 +123,20 @@ window.addEventListener('load', () => {
     contenedorLoader.style.visibility = 'hidden';
 })
 
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    // Encuentra el reCAPTCHA
+    const recaptcha = document.querySelector('div[data-netlify-recaptcha="true"] iframe');
+
+    // Verifica si el reCAPTCHA no ha sido completado (se puede verificar si el iframe existe y está visible)
+    if (recaptcha && recaptcha.style.visibility === 'hidden') {
+        event.preventDefault(); // Previene el envío del formulario
+        Swal.fire({
+            title: "Error",
+            text: "Por favor, verifica que no eres un robot.",
+            icon: "error"
+        });
+    } else {
+        // Si el reCAPTCHA ha sido completado, el formulario se envía
+        this.submit();
+    }
+});
