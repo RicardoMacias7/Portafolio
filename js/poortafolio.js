@@ -76,106 +76,106 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // =========================FORMULARIO errores y cambio de idioma=========================
-let translations = {};
+// let translations = {};
 
-function changeLanguage(language) {
-    // Guarda el idioma seleccionado en localStorage
-    localStorage.setItem('language', language);
+// function changeLanguage(language) {
+//     // Guarda el idioma seleccionado en localStorage
+//     localStorage.setItem('language', language);
 
-    // Carga el archivo de traducción correspondiente
-    fetch(`../language/${language}.json`)
-        .then(response => response.json())
-        .then(data => {
-            translations = data;
-            applyTranslations(data);
-        })
-        .catch(error => console.error('Error al cargar el archivo de traducción:', error));
-}
+//     // Carga el archivo de traducción correspondiente
+//     fetch(`../language/${language}.json`)
+//         .then(response => response.json())
+//         .then(data => {
+//             translations = data;
+//             applyTranslations(data);
+//         })
+//         .catch(error => console.error('Error al cargar el archivo de traducción:', error));
+// }
 
-function applyTranslations(translations) {
-    // Itera sobre cada clave en las traducciones y actualiza el contenido del elemento correspondiente
-    for (const [key, value] of Object.entries(translations)) {
-        const element = document.getElementById(key);
-        if (element) {
-            element.innerText = value;
-        }
-    }
-}
+// function applyTranslations(translations) {
+//     // Itera sobre cada clave en las traducciones y actualiza el contenido del elemento correspondiente
+//     for (const [key, value] of Object.entries(translations)) {
+//         const element = document.getElementById(key);
+//         if (element) {
+//             element.innerText = value;
+//         }
+//     }
+// }
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    clearErrors();
+// document.getElementById('contactForm').addEventListener('submit', function(event) {
+//     event.preventDefault();
+//     clearErrors();
 
-    const fields = {
-        nombre: document.getElementById('nombre').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        asunto: document.getElementById('asunto').value.trim(),
-        mensaje: document.getElementById('mensaje').value.trim()
-    };
+//     const fields = {
+//         nombre: document.getElementById('nombre').value.trim(),
+//         email: document.getElementById('email').value.trim(),
+//         asunto: document.getElementById('asunto').value.trim(),
+//         mensaje: document.getElementById('mensaje').value.trim()
+//     };
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    let hasError = false;
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     let hasError = false;
 
-    for (const [fieldId, value] of Object.entries(fields)) {
-        if (value === "" || (fieldId === 'email' && !emailRegex.test(value))) {
-            showError(fieldId, fieldId === 'email' && value !== "" ? 'emailInvalido' : `${fieldId}Obligatorio`);
-            hasError = true;
-        }
-    }
+//     for (const [fieldId, value] of Object.entries(fields)) {
+//         if (value === "" || (fieldId === 'email' && !emailRegex.test(value))) {
+//             showError(fieldId, fieldId === 'email' && value !== "" ? 'emailInvalido' : `${fieldId}Obligatorio`);
+//             hasError = true;
+//         }
+//     }
 
-    if (!hasError) {
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(fields).toString()
-        })
-        .then(() => {
-            Swal.fire({
-                title: translations.successTitle,
-                text: translations.successText,
-                icon: "success"
-            });
-            document.getElementById('contactForm').reset();
-        })
-        .catch(error => {
-            Swal.fire({
-                title: translations.errorTitle,
-                text: translations.errorText,
-                icon: "error"
-            });
-            console.error("Form submission error:", error);
-        });
-    } else {
-        Swal.fire({
-            title: translations.errorTitle,
-            text: translations.errorText,
-            icon: "error"
-        });
-    }
-});
+//     if (!hasError) {
+//         fetch("/", {
+//             method: "POST",
+//             headers: { "Content-Type": "application/x-www-form-urlencoded" },
+//             body: new URLSearchParams(fields).toString()
+//         })
+//         .then(() => {
+//             Swal.fire({
+//                 title: translations.successTitle,
+//                 text: translations.successText,
+//                 icon: "success"
+//             });
+//             document.getElementById('contactForm').reset();
+//         })
+//         .catch(error => {
+//             Swal.fire({
+//                 title: translations.errorTitle,
+//                 text: translations.errorText,
+//                 icon: "error"
+//             });
+//             console.error("Form submission error:", error);
+//         });
+//     } else {
+//         Swal.fire({
+//             title: translations.errorTitle,
+//             text: translations.errorText,
+//             icon: "error"
+//         });
+//     }
+// });
 
-function showError(fieldId, errorKey) {
-    const errorElement = document.getElementById(`error-${fieldId}`);
-    errorElement.innerText = translations[errorKey];
-    errorElement.style.display = 'block';
-    document.getElementById(fieldId).style.borderColor = 'red';
-}
+// function showError(fieldId, errorKey) {
+//     const errorElement = document.getElementById(`error-${fieldId}`);
+//     errorElement.innerText = translations[errorKey];
+//     errorElement.style.display = 'block';
+//     document.getElementById(fieldId).style.borderColor = 'red';
+// }
 
-function clearErrors() {
-    document.querySelectorAll('.error-message').forEach(msg => {
-        msg.style.display = 'none';
-        msg.innerText = '';
-    });
-    document.querySelectorAll('input, textarea').forEach(field => field.style.borderColor = '');
-}
+// function clearErrors() {
+//     document.querySelectorAll('.error-message').forEach(msg => {
+//         msg.style.display = 'none';
+//         msg.innerText = '';
+//     });
+//     document.querySelectorAll('input, textarea').forEach(field => field.style.borderColor = '');
+// }
 
-// Event listeners para los clics en los iconos
-document.querySelectorAll('.flags__item').forEach(item => {
-    item.addEventListener('click', function () {
-        const selectedLanguage = this.getAttribute('data-language');
-        changeLanguage(selectedLanguage);
-    });
-});
+// // Event listeners para los clics en los iconos
+// document.querySelectorAll('.flags__item').forEach(item => {
+//     item.addEventListener('click', function () {
+//         const selectedLanguage = this.getAttribute('data-language');
+//         changeLanguage(selectedLanguage);
+//     });
+// });
 
 // Aplica el idioma guardado en localStorage al cargar la página
 window.addEventListener('DOMContentLoaded', (event) => {
