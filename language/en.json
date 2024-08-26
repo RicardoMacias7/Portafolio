@@ -37,6 +37,16 @@
 
 
     "title5": "Contact",
-    "btn-enviar":"Send Message"
+    "btn-enviar":"Send Message",
+
+    "nombreObligatorio": "The name field is required.",
+    "emailObligatorio": "The email field is required.",
+    "emailInvalido": "Please enter a valid email address.",
+    "asuntoObligatorio": "The subject field is required.",
+    "mensajeObligatorio": "The message field is required.",
+    "successTitle": "Excellent!",
+    "successText": "The message was sent successfully.",
+    "errorTitle": "Error",
+    "errorText": "There was a problem submitting the form."
 }
     

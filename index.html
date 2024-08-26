@@ -76,7 +76,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css
                 <div class="botones">
                     <a class="ir_proyecto" href="#portafolio" id="btn_proyecto">Ir a Proyectos</a>
                     <a class="btn-cv" id="btn_cv"
-                        href="https://drive.google.com/file/d/1jE7NS-cq8YzfrQcjV-7xkQVa0B7SzPj_/view"
+                        href="#"
                         target="_blank">Descargar CV</a>
 
                 </div>
@@ -311,24 +311,20 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css
         <div class="contenedor-from">
 
             <!-- <form id="contactForm" novalidate> -->
-            <form id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                <!-- Campo oculto para Netlify -->
-                <input type="hidden" name="form-name" value="contact">
-                <p style="display: none;">
-                    <label>Don't fill this out if you're human: <input name="bot-field"></label>
-                </p>
+            <form id="contactForm" name="contact" method="POST" netlify>
+            
                 <div class="fila mitad">
-                    <input type="text" placeholder="Nombre | Name" class="input-mitad" id="nombre">
+                    <input type="text" placeholder="Nombre | Name" name="name" class="input-mitad" id="nombre">
                     <span class="error-message" id="error-nombre"></span>
-                    <input type="email" placeholder="E-mail" class="input-mitad" id="email">
+                    <input type="email" placeholder="E-mail" class="input-mitad" name="email" id="email">
                     <span class="error-message" id="error-email"></span>
                 </div>
                 <div class="fila">
-                    <input type="text" placeholder="Asunto | Subject" class="input-full" id="asunto">
+                    <input type="text" placeholder="Asunto | Subject" name="affair" class="input-full" id="asunto">
                     <span class="error-message" id="error-asunto"></span>
                 </div>
                 <div class="fila">
-                    <textarea id="mensaje" cols="30" rows="10" placeholder="Mensaje | Message"
+                    <textarea id="mensaje" cols="30" rows="10" name="message" placeholder="Mensaje | Message"
                         class="input-full"></textarea>
                     <span class="error-message" id="error-mensaje"></span>
                 </div>
