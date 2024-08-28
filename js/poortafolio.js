@@ -99,8 +99,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
  //========================================================== Cv cambia los cv si segun el idioma selecionado ===========================================================================
  document.addEventListener("DOMContentLoaded", function() {
     const btnCv = document.getElementById("btn_cv");
+    const titlePresentacion = document.getElementById("title_presentacion");
 
-    // URLs de los CVs ....
+    // URLs de los CVs
     const cvUrlEs = "https://drive.google.com/file/d/11QgH9SXJIw0RjI2SyhHDUzYBwqtvuMOV/view?usp=sharing"; // CV en español
     const cvUrlEn = "https://drive.google.com/file/d/16i-gZMj-Nt1Rp2lnTo7P3pahN5mQVV1_/view?usp=sharing"; // CV en inglés
 
@@ -113,17 +114,35 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
+    // Función para cambiar solo el texto fuera del span
+    function changeTitle(language) {
+        const spanContent = titlePresentacion.querySelector("span").outerHTML;
+        let textContent = "";
+
+        if (language === "es") {
+            textContent = `Soy ${spanContent}, Desarrollador de Software`;
+        } else if (language === "en") {
+            textContent = `I am ${spanContent}, Software Developer`;
+        }
+
+        titlePresentacion.innerHTML = textContent;
+    }
+
     // Evento de cambio de idioma
     document.querySelectorAll('.flags__item').forEach(item => {
         item.addEventListener('click', function() {
             const selectedLanguage = this.getAttribute('data-language');
+            // Guardar el idioma seleccionado en localStorage
+            localStorage.setItem('language', selectedLanguage);
             changeCvLink(selectedLanguage);
+            changeTitle(selectedLanguage);
         });
     });
 
-    // Cambiar el enlace del CV cuando se cargue la página según el idioma actual
-    const currentLanguage = document.querySelector('.flags__item.active').getAttribute('data-language');
+    // Cambiar el enlace del CV y el texto del título cuando se cargue la página según el idioma actual
+    const currentLanguage = localStorage.getItem('language') || 'es'; // Obtiene el idioma actual o usa 'es' como predeterminado
     changeCvLink(currentLanguage);
+    changeTitle(currentLanguage);
 });
 
 
