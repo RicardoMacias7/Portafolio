@@ -100,6 +100,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
  document.addEventListener("DOMContentLoaded", function() {
     const btnCv = document.getElementById("btn_cv");
     const titlePresentacion = document.getElementById("title_presentacion");
+    const descShortEs = document.getElementById("desc-short-es");
+    const descShortEn = document.getElementById("desc-short-en");
+    const descLongEs = document.getElementById("desc-long-es");
+    const descLongEn = document.getElementById("desc-long-en");
+    const readMoreBtn = document.getElementById("readMoreBtn");
 
     // URLs de los CVs
     const cvUrlEs = "https://drive.google.com/file/d/11QgH9SXJIw0RjI2SyhHDUzYBwqtvuMOV/view?usp=sharing"; // CV en español
@@ -113,6 +118,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
             btnCv.href = cvUrlEn;
         }
     }
+
+        // Función para cambiar el título y descripción del proyecto
+        function changeLanguage(language) {
+            if (language === "es") {
+                descShortEs.style.display = "inline";
+                descLongEs.style.display = "inline";
+                descShortEn.style.display = "none";
+                descLongEn.style.display = "none";
+                readMoreBtn.textContent = "Leer más";
+            } else if (language === "en") {
+                descShortEs.style.display = "none";
+                descLongEs.style.display = "none";
+                descShortEn.style.display = "inline";
+                descLongEn.style.display = "inline";
+                readMoreBtn.textContent = "Read More";
+            }
+        }
 
     // Función para cambiar solo el texto fuera del span
     function changeTitle(language) {
@@ -136,6 +158,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             localStorage.setItem('language', selectedLanguage);
             changeCvLink(selectedLanguage);
             changeTitle(selectedLanguage);
+            changeLanguage(selectedLanguage);
         });
     });
 
@@ -143,11 +166,38 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const currentLanguage = localStorage.getItem('language') || 'es'; // Obtiene el idioma actual o usa 'es' como predeterminado
     changeCvLink(currentLanguage);
     changeTitle(currentLanguage);
+    changeLanguage(currentLanguage);
 });
+
+
+//========================================================== cambio de leer a mas y menos  ===========================================================================
+
+function toggleText() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("moreText");
+    var btnText = document.getElementById("readMoreBtn");
+
+    if (dots.style.display === "none") {
+        // Volver a mostrar los puntos suspensivos y ocultar el texto adicional
+        dots.style.display = "inline";
+        moreText.style.display = "none";
+        // Cambiar el texto del botón a "Leer más" o "Read More"
+        if (btnText.textContent === "Leer menos" || btnText.textContent === "Read Less") {
+            btnText.textContent = btnText.textContent === "Leer menos" ? "Leer más" : "Read More";
+        }
+    } else {
+        dots.style.display = "none";
+        moreText.style.display = "inline";
+        if (btnText.textContent === "Leer más" || btnText.textContent === "Read More") {
+            btnText.textContent = btnText.textContent === "Leer más" ? "Leer menos" : "Read Less";
+        }
+    }
+}
 
 
 
 // ============================================= Mensaje personalizado al enviar el formulario ===========================================================================
+
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevenir el envío estándar del formulario
 
@@ -157,6 +207,25 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     // Convierte el FormData en una cadena de consulta
     const formEncoded = new URLSearchParams(formData).toString();
 
+    // Obtener el idioma actual...
+    const currentLanguage = localStorage.getItem('language') || 'es'; // idioma predeterminado
+
+ 
+    const alertMessages = {
+        es: {
+            successTitle: "¡Excelente!",
+            successText: "El mensaje fue enviado exitosamente.",
+            errorTitle: "Error",
+            errorText: "Hubo un problema al enviar el formulario."
+        },
+        en: {
+            successTitle: "Great!",
+            successText: "The message was sent successfully.",
+            errorTitle: "Error",
+            errorText: "There was a problem sending the form."
+        }
+    };
+
     // Envía el formulario a Netlify
     fetch("/", {
         method: "POST",
@@ -165,18 +234,18 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     })
     .then(response => {
         if (response.ok) {
-            // Muestra un mensaje de éxito si la respuesta es exitosa
+            // exito
             Swal.fire({
-                title: "¡Excelente!",
-                text: "El mensaje fue enviado exitosamente.",
+                title: alertMessages[currentLanguage].successTitle,
+                text: alertMessages[currentLanguage].successText,
                 icon: "success",
             });
             form.reset(); // Limpia el formulario después del envío
         } else {
             // Si hay un error en la respuesta
             Swal.fire({
-                title: "Error",
-                text: "Hubo un problema al enviar el formulario.",
+                title: alertMessages[currentLanguage].errorTitle,
+                text: alertMessages[currentLanguage].errorText,
                 icon: "error",
             });
         }
@@ -184,13 +253,14 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     .catch(error => {
         // Si ocurre un error en la solicitud fetch
         Swal.fire({
-            title: "Error",
-            text: "Hubo un problema al enviar el formulario.",
+            title: alertMessages[currentLanguage].errorTitle,
+            text: alertMessages[currentLanguage].errorText,
             icon: "error",
         });
         console.error("Error al enviar el formulario:", error);
     });
 });
+
 
 // ============================================= Cambiar animacion al estar el dispositivo está en modo responsivo ===========================================================================
 
