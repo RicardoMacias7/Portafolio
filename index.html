@@ -354,8 +354,12 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css
         <h3 class="titulo-seccion" id="title5">Contacto</h3>
         <div class="contenedor-from" data-aos="zoom-in-up">
 
-            <form id="contactForm" name="contact" method="POST" data-netlify="true">
-
+            <!-- <form id="contactForm" name="contact" method="POST" data-netlify="true"> -->
+            <form id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                
+                <!-- Honeypot field -->
+            <input type="hidden" name="bot-field">
+            
                 <div class="fila mitad">
                     <input type="text" placeholder="Nombre | Name" name="name" class="input-mitad" id="nombre" required>
                     <input type="email" placeholder="E-mail" class="input-mitad" name="email" id="email" required>
