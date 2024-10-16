@@ -107,8 +107,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const readMoreBtn = document.getElementById("readMoreBtn");
 
     // URLs de los CVs
-    const cvUrlEs = "https://drive.google.com/file/d/1iaquNcCYjpwiNSOki-TI7WRf0dsnIlbf/view?usp=sharing"; // CV en español
-    const cvUrlEn = "https://drive.google.com/file/d/1LduFoJBQ-GvwmAPZWdvZF9rNqGEdr2Be/view?usp=sharing"; // CV en inglés
+    const cvUrlEs = "https://drive.google.com/file/d/1TWKgrSRBDIMossjL3abZ8k6m02aa2v4u/view?usp=sharing"; // CV en español
+    const cvUrlEn = "https://drive.google.com/file/d/1BTZidNk9r3ShoW5OnHA6-ktkJ0SEKGGb/view?usp=sharing"; // CV en inglés
 
     // Función para cambiar el enlace del CV según el idioma seleccionado
     function changeCvLink(language) {
